@@ -1,12 +1,19 @@
-<?php
+<?php 
+// Memanggil file dbkoneksi.php yang berisi koneksi ke database
+require_once 'dbkoneksi.php';
 
-    //Delete pelanggan
-        require_once 'dbkoneksi.php';
-        $_iddel = $_GET['iddel'];
-        $sql = "DELETE FROM pelanggan WHERE id=?";
-        $st = $dbh -> prepare ($sql);
-        $st -> execute ([$_iddel]);
+// Mendapatkan nilai dari parameter 'id' pada URL
+$_id = $_GET['id'];
 
-    //pengalihan halaman ketika sudah di delete
-        header('location:list_pelanggan.php');
+// Query DELETE untuk menghapus data pada tabel 'pelanggan' dengan kondisi 'id' = $_id
+$sql = "DELETE FROM pelanggan WHERE id = ?";
+
+// Menyiapkan statement SQL
+$st = $dbh->prepare($sql);
+
+// Menjalankan statement SQL dengan mengirimkan nilai parameter $_id
+$st->execute([$_id]);
+
+// Mengarahkan halaman ke list_pelanggan.php setelah data berhasil dihapus
+header('location:list_pelanggan.php');
 ?>

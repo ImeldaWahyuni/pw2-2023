@@ -6,8 +6,8 @@ require_once 'dbkoneksi.php';
     // Mendapatkan nilai id dari parameter GET
     $_id = $_GET['id'];
 
-    // Membuat query SQL untuk mengambil data produk dengan id tertentu
-    $sql = "SELECT * FROM produk WHERE id=?";
+    // Membuat query SQL untuk mengambil data pelanggan dengan id tertentu
+    $sql = "SELECT * FROM pelanggan WHERE id=?";
     $st = $dbh->prepare($sql);
 
     // Menjalankan query dengan parameter id yang telah didapatkan sebelumnya
@@ -17,7 +17,7 @@ require_once 'dbkoneksi.php';
     $row = $st->fetch();
 ?>
 
-<!-- Menampilkan data produk dalam bentuk tabel -->
+<!-- Menampilkan data pelanggan dalam bentuk tabel -->
 <table class="table table-striped">
     <tbody>
         <tr>
@@ -29,28 +29,28 @@ require_once 'dbkoneksi.php';
             <td><?=$row['kode']?></td>
         </tr>
         <tr>
-            <td>Nama Produk</td>
+            <td>Nama</td>
             <td><?=$row['nama']?></td>
         </tr>
         <tr>
-            <td>Harga Jual</td>
-            <td><?=$row['harga_jual']?></td>
+            <td>Jenis Kelamin</td>
+            <td><?=$row['jk']?></td>
         </tr>
         <tr>
-            <td>Harga Beli</td>
-            <td><?=$row['harga_beli']?></td>
+            <td>Tempat Lahir</td>
+            <td><?=$row['tmp_lahir']?></td>
         </tr>
         <tr>
-            <td>Stok</td>
-            <td><?=$row['stok']?></td>
+            <td>Tanggal Lahir </td>
+            <td><?=$row['tgl_lahir']?></td>
         </tr>
         <tr>
-            <td>Minimum Stok</td>
-            <td><?=$row['min_stok']?></td>
+            <td>Email</td>
+            <td><?=$row['email']?></td>
         </tr>
         <tr>
-            <td>Jenis Produk</td>
-            <td><?=$row['jenis_produk_id']?></td>
+            <td>Kartu</td>
+            <td><?=$row['kartu_id']?></td>
         </tr>
     </tbody>
 </table>

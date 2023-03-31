@@ -1,38 +1,44 @@
 <?php 
+// Include file koneksi database
 require_once 'dbkoneksi.php';
-?>
-<?php 
-   $_kode = $_POST['kode'];
-   $_nama = $_POST['nama'];
-   $_harga = $_POST['harga_beli'];
-   $_stok = $_POST['stok'];
-   $_minstok = $_POST['min_stok'];
-   $_jenis = $_POST['jenis'];
 
-   $_proses = $_POST['proses'];
+// Ambil data dari form
+$_kode = $_POST['kode'];
+$_nama = $_POST['nama'];
+$_harga = $_POST['harga_beli'];
+$_stok = $_POST['stok'];
+$_minstok = $_POST['min_stok'];
+$_jenis = $_POST['jenis'];
 
-   // array data
-   $ar_data[]=$_kode; // ? 1
-   $ar_data[]=$_nama; // ? 2
-   $ar_data[]=$_harga;// 3
-   $ar_data[]= 1.2 * $_harga;
-   $ar_data[]=$_stok;
-   $ar_data[]=$_minstok;
-   $ar_data[]=$_jenis; // ? 7
+$_proses = $_POST['proses'];
 
-   if($_proses == "Simpan"){
-    // data baru
+// Simpan data ke dalam array
+$ar_data[]=$_kode;
+$ar_data[]=$_nama;
+$ar_data[]=$_harga;
+$ar_data[]= 1.2 * $_harga;
+$ar_data[]=$_stok;
+$ar_data[]=$_minstok;
+$ar_data[]=$_jenis;
+
+// Cek aksi yang dilakukan: Simpan atau Update
+if($_proses == "Simpan"){
+    // Jika Simpan, buat SQL INSERT
     $sql = "INSERT INTO produk (kode,nama,harga_beli,harga_jual,stok,
     min_stok,jenis_produk_id) VALUES (?,?,?,?,?,?,?)";
-   }else if($_proses == "Update"){
-    $ar_data[]=$_POST['idedit'];// ? 8
+}else if($_proses == "Update"){
+    // Jika Update, tambahkan ID ke array dan buat SQL UPDATE
+    $ar_data[]=$_POST['id'];
     $sql = "UPDATE produk SET kode=?,nama=?,harga_beli=?,harga_jual=?,
     stok=?,min_stok=?,jenis_produk_id=? WHERE id=?";
-   }
-   if(isset($sql)){
+}
+
+// Jika ada perintah SQL, jalankan perintah prepare dan execute dengan array data
+if(isset($sql)){
     $st = $dbh->prepare($sql);
     $st->execute($ar_data);
-   }
+}
 
-   header('location:list_produk.php');
+// Redirect ke halaman daftar produk
+header('location:list_produk.php');
 ?>
