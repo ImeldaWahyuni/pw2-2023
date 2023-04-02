@@ -4,7 +4,7 @@ require_once 'dbkoneksi.php';
 
 <?php 
     // cek apakah terdapat parameter id pada URL, jika ada maka dilakukan edit data
-    $_id = isset($_GET['id']) ? $_GET['id'] : null;
+    $_id = isset($_GET['idedit']) ? $_GET['idedit'] : null;
     if(!empty($_id)){
         // ambil data pelanggan berdasarkan id
         $sql = "SELECT * FROM pelanggan WHERE id=?";
@@ -54,7 +54,7 @@ require_once 'dbkoneksi.php';
                         <i class="fa fa-arrow-circle-o-left"></i>
                     </div>
                 </div>
-                <input id="jk" name="jk" value="L" type="radio" class="form-control">Laki-laki
+                <input id="jk" name="jk" value="L" type="radio" class="form-control" required>Laki-laki
                 <input id="jk" name="jk" value="P" type="radio" class="form-control">Perempuan
             </div>
         </div>
@@ -81,7 +81,7 @@ require_once 'dbkoneksi.php';
                         <i class="fa fa-arrow-circle-right"></i>
                     </div>
                 </div>
-                <input id="tgl_lahir" name="tgl_lahir" value="<?php if(isset($row['tgl_lahir'])) echo $row['tgl_lahir']; ?>" type="date" class="form-control">
+                <input id="tgl_lahir" name="tgl_lahir" value="<?php if(isset($row['tgl_lahir'])) echo $row['tgl_lahir'];?>" type="date" class="form-control">
             </div>
         </div>
     </div>
@@ -123,7 +123,7 @@ require_once 'dbkoneksi.php';
     ?>
       <input type="submit" name="proses" type="submit" 
       class="btn btn-primary" value="<?=$button?>"/>
-      <input type="hidden" name="id" value="<?=$_id?>"/>
+      <input type="hidden" name="idedit" value="<?=$_id?>"/>
     </div>
   </div>
 </form>
