@@ -43,76 +43,22 @@
                     </tr>
                 </tfoot>
                 <tbody>
+                    @foreach ($movies as $movie)
                     <tr>
-                        <td>1</td>
-                        <td>Train to Busan</td>
-                        <td>image.png</td>
-                        <td>Thriller</td>
-                        <td>Korea</td>
-                        <td>1994</td>
-                        <td>9.0</td>
+                        <td>{{$movie['no']}}</td>
+                        <td>{{$movie['judul']}}</td>
+                        <td>{{$movie['poster']}}</td>
+                        <td>{{$movie['genre']}}</td>
+                        <td>{{$movie['negara']}}</td>
+                        <td>{{$movie['tahun']}}</td>
+                        <td>{{$movie['rating']}}</td>
                         <td>
                             <a href="" class="btn btn-sm btn-warning"> Edit</a>
                             <a href="" class="btn btn-sm btn-danger"
                                 onclick="return confirm('Apakah anda yakin ingin menghapus?')"> Delete</a>
                         </td>
                     </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Mariposa</td>
-                        <td>image.png</td>
-                        <td>Fiksi Remaja</td>
-                        <td>Indonesia</td>
-                        <td>2020</td>
-                        <td>8.5</td>
-                        <td>
-                            <a href="" class="btn btn-sm btn-warning"> Edit</a>
-                            <a href="" class="btn btn-sm btn-danger"
-                                onclick="return confirm('Apakah anda yakin ingin menghapus?')"> Delete</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Waktu Magrib</td>
-                        <td>image.png</td>
-                        <td>Horor</td>
-                        <td>Indonesia</td>
-                        <td>2023</td>
-                        <td>9.5</td>
-                        <td>
-                            <a href="" class="btn btn-sm btn-warning"> Edit</a>
-                            <a href="" class="btn btn-sm btn-danger"
-                                onclick="return confirm('Apakah anda yakin ingin menghapus?')"> Delete</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>Antares</td>
-                        <td>image.png</td>
-                        <td>Drama</td>
-                        <td>Amerika Serikat</td>
-                        <td>2020</td>
-                        <td>8.9</td>
-                        <td>
-                            <a href="" class="btn btn-sm btn-warning"> Edit</a>
-                            <a href="" class="btn btn-sm btn-danger"
-                                onclick="return confirm('Apakah anda yakin ingin menghapus?')"> Delete</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td>Danur</td>
-                        <td>image.png</td>
-                        <td>Horor</td>
-                        <td>Indonesia</td>
-                        <td>2015</td>
-                        <td>9.2</td>
-                        <td>
-                            <a href="" class="btn btn-sm btn-warning"> Edit</a>
-                            <a href="" class="btn btn-sm btn-danger"
-                                onclick="return confirm('Apakah anda yakin ingin menghapus?')"> Delete</a>
-                        </td>
-                    </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>

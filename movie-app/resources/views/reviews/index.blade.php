@@ -39,66 +39,20 @@
                     </tr>
                 </tfoot>
                 <tbody>
+                    @foreach ($reviews as $review)
                     <tr>
-                        <td>1</td>
-                        <td>Train to Busan</td>
-                        <td>Thriller</td>
-                        <td>9.0</td>
-                        <td>Cerita Zombie yang seru dan menegangkan di antara film zombie yang lain</td>
+                        <td>{{$review['no']}}</td>
+                        <td>{{$review['judul']}}</td>
+                        <td>{{$review['genre']}}</td>
+                        <td>{{$review['rating']}}</td>
+                        <td>{{$review['review']}}</td>
                         <td>
                             <a href="" class="btn btn-sm btn-warning"> Edit</a>
                             <a href="" class="btn btn-sm btn-danger"
                                 onclick="return confirm('Apakah anda yakin ingin menghapus?')"> Delete</a>
                         </td>
                     </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Mariposa</td>
-                        <td>Fiksi Remaja</td>
-                        <td>8.5</td>
-                        <td>Ceritanya bagus banget, cocok untuk remaja</td>
-                        <td>
-                            <a href="" class="btn btn-sm btn-warning"> Edit</a>
-                            <a href="" class="btn btn-sm btn-danger"
-                                onclick="return confirm('Apakah anda yakin ingin menghapus?')"> Delete</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Waktu Magrib</td>
-                        <td>Horor</td>
-                        <td>9.5</td>
-                        <td>Ceritanya seru dan dapat mengambil pelajaran dari cerita tersebut</td>
-                        <td>
-                            <a href="" class="btn btn-sm btn-warning"> Edit</a>
-                            <a href="" class="btn btn-sm btn-danger"
-                                onclick="return confirm('Apakah anda yakin ingin menghapus?')"> Delete</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>Antares</td>
-                        <td>Drama</td>
-                        <td>8.9</td>
-                        <td>Cerita geng motor yang sangat seru</td>
-                        <td>
-                            <a href="" class="btn btn-sm btn-warning"> Edit</a>
-                            <a href="" class="btn btn-sm btn-danger"
-                                onclick="return confirm('Apakah anda yakin ingin menghapus?')"> Delete</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td>Danur</td>
-                        <td>Horor</td>
-                        <td>9.2</td>
-                        <td>Cerita Zombie yang menegangkan dan seru</td>
-                        <td>
-                            <a href="" class="btn btn-sm btn-warning"> Edit</a>
-                            <a href="" class="btn btn-sm btn-danger"
-                                onclick="return confirm('Apakah anda yakin ingin menghapus?')"> Delete</a>
-                        </td>
-                    </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
