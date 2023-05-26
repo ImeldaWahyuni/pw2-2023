@@ -21,31 +21,34 @@
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Judul</th>
-                        <th>Genre</th>
+                        <th>Film</th>
+                        <th>User</th>
                         <th>Rating</th>
-                        <th>Review</th>
+                        <th>Deskipsi</th>
+                        <th>Tanggal</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tfoot>
                     <tr>
                         <th>No</th>
-                        <th>Judul</th>
-                        <th>Genre</th>
+                        <th>Film</th>
+                        <th>User</th>
                         <th>Rating</th>
-                        <th>Review</th>
+                        <th>Deskipsi</th>
+                        <th>Tanggal</th>
                         <th>Action</th>
                     </tr>
                 </tfoot>
                 <tbody>
                     @foreach ($reviews as $review)
                     <tr>
-                        <td>{{$review['no']}}</td>
-                        <td>{{$review['judul']}}</td>
-                        <td>{{$review['genre']}}</td>
-                        <td>{{$review['rating']}}</td>
-                        <td>{{$review['review']}}</td>
+                        <td>{{$loop->iteration }}</td>
+                        <td>{{$review->film}}</td>
+                        <td>{{$review->user}}</td>
+                        <td>{{$review->rating}}</td>
+                        <td>{{$review->deskripsi}}</td>
+                        <td>{{$review->tanggal}}</td>
                         <td>
                             <a href="" class="btn btn-sm btn-warning"> Edit</a>
                             <a href="" class="btn btn-sm btn-danger"
