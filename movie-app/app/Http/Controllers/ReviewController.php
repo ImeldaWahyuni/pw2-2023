@@ -23,7 +23,8 @@ class ReviewController extends Controller
      */
     public function create()
     {
-        //
+        $reviews = Review::all();
+        return view('reviews.create', compact('reviews'));
     }
 
     /**
@@ -31,7 +32,17 @@ class ReviewController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validateData = $request->validate([
+            'film' => 'required',
+            'user' => 'required',
+            'rating' => 'required',
+            'deskripsi' => 'required',
+            'tanggal' => 'required',
+        ]);
+
+        Review::create($validateData);
+
+        return redirect('/reviews')->with('success','Review added successfully! 😀👌');
     }
 
     /**
@@ -63,6 +74,8 @@ class ReviewController extends Controller
      */
     public function destroy(Review $review)
     {
-        //
+        $review->delete();
+
+        return redirect('/reviews')->with('success','Review deleted successfully! 😎👍');
     }
 }
