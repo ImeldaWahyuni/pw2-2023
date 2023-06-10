@@ -58,10 +58,10 @@
                         <td>{{$movie->tahun}}</td>
                         <td>{{$movie->rating}}</td>
                         <td>
-                            <a href="" class="btn btn-sm btn-warning"> Edit</a>
+                            <a href="/movies/{{ $movie->id }}/edit" class="btn btn-sm btn-warning">Edit</a>
                             <form action="/movies/{{ $movie->id }}" method="post">
                                 @csrf
-                                @method('DELETE');
+                                @method('DELETE')
                                 <button type="submit" class="btn btn-sm btn-danger">Delete</button>
                             </form>
                         </td>
