@@ -100,7 +100,7 @@ class MovieController extends Controller
 
         $movie->update($validateData);
 
-        return redirect('/movies')->with('success', 'Data berhasil diubah😎👌');
+        return redirect('/movies')->with('success', 'Data berhasil diubah');
     }
 
     /**

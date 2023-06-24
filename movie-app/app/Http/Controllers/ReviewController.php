@@ -42,7 +42,7 @@ class ReviewController extends Controller
 
         Review::create($validateData);
 
-        return redirect('/reviews')->with('success','Review added successfully! 😀👌');
+        return redirect('/reviews')->with('success','Review added successfully!');
     }
 
     /**
@@ -77,7 +77,7 @@ class ReviewController extends Controller
 
         $review->update($validateData);
 
-        return redirect('/reviews')->with('success', 'Data berhasil diubah😎👌');
+        return redirect('/reviews')->with('success', 'Data berhasil diubah');
     }
 
     /**
@@ -87,6 +87,6 @@ class ReviewController extends Controller
     {
         $review->delete();
 
-        return redirect('/reviews')->with('success','Review deleted successfully! 😎👍');
+        return redirect('/reviews')->with('success','Review deleted successfully!');
     }
 }

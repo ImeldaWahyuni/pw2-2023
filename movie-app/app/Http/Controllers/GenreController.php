@@ -38,7 +38,7 @@ class GenreController extends Controller
 
         Genre::create($validateData);
 
-        return redirect('/genres')->with('success','Genre added successfully! 😀👌');
+        return redirect('/genres')->with('success','Genre added successfully!');
     }
 
     /**
@@ -69,7 +69,7 @@ class GenreController extends Controller
 
         $genre->update($validateData);
 
-        return redirect('/genres')->with('success', 'Data berhasil diubah😎👌');
+        return redirect('/genres')->with('success', 'Data berhasil diubah');
     }
 
     /**
@@ -79,6 +79,6 @@ class GenreController extends Controller
     {
         $genre->delete();
 
-        return redirect('/genres')->with('success','Genre deleted successfully! 😎👍');
+        return redirect('/genres')->with('success','Genre deleted successfully!');
     }
 }
