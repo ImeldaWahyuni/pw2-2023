@@ -32,7 +32,11 @@ Route::get('/users', [UserController::class, 'index']) ;
 Route::get('/register', [AuthController::class, 'showRegistrationForm']);
 Route::post('/register', [AuthController::class, 'register']);
 
-Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
+Route::group(['middleware' => 'auth'], function () {
+    Route::resource('/movies', MovieController::class);
+});
+
+Route::get('/login', [AuthController::class,  'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
 
 

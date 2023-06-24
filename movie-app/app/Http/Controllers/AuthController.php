@@ -34,20 +34,23 @@ class AuthController extends Controller
     {
         return view('auth.login');
     }
-
+    
     public function login(Request $request)
     {
         $validatedData = $request->validate([
-            'email' => 'required|email',
+            'email' => 'required|email|',
             'password' => 'required',
         ]);
-
+    
         if (Auth::attempt($validatedData)) {
-            return redirect('/')->with('success', 'Login successfully');
+            $user = Auth::user();
+            if ($user->role == 'admin') {
+                return redirect('/movies')->with('success', 'Login successfully as admin');
+            } else {
+                return redirect('/')->with('success', 'Login successfully as user');
+            }
         }
-
-        return back()->withErrors([
-            'email' => 'The provided validateData do not match our records.',
-        ]);
+    
+        // code..
     }
 }
